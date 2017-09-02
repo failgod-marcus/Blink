@@ -1,12 +1,12 @@
-package com.monkeyinabucket.forge.blink.rune;
+package com.monkeyinabucket.blink.rune;
 
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 
-import com.monkeyinabucket.forge.blink.group.BlinkGroup;
-import com.monkeyinabucket.forge.world.Location;
-import com.monkeyinabucket.forge.world.SerializableLocation;
+import com.monkeyinabucket.blink.group.BlinkGroup;
+import com.monkeyinabucket.world.Coordinates;
+import com.monkeyinabucket.world.SerializableLocation;
 
 /**
  * Manages runes, groups and their life-cycles.
@@ -43,13 +43,13 @@ public class RuneManager {
   }
 
   /**
-   * Returns the BlinkRune who's center Location matches the specified Location
+   * Returns the BlinkRune who's center Coordinates matches the specified Coordinates
    * 
-   * @param loc the Location to use as the point of reference
+   * @param loc the Coordinates to use as the point of reference
    * @return the BlinkRune, or null if there is no BlinkRune at the specified
-   *         Location
+   *         Coordinates
    */
-  public BlinkRune getRuneByCenter(Location loc) {
+  public BlinkRune getRuneByCenter(Coordinates loc) {
     for (BlinkRune rune : runes) {
       if (rune.getLocation().equals(loc)) {
         return rune;
@@ -60,15 +60,15 @@ public class RuneManager {
   }
 
   /**
-   * Returns the BlinkRune which contains the specified Location
+   * Returns the BlinkRune which contains the specified Coordinates
    * 
-   * @param loc the Location to use as the point of reference
-   * @return the BlinkRune, or null if the specified Location is not part of a
+   * @param loc the Coordinates to use as the point of reference
+   * @return the BlinkRune, or null if the specified Coordinates is not part of a
    *         BlinkRune
    */
-  public BlinkRune getRuneByPart(Location loc) {
+  public BlinkRune getRuneByPart(Coordinates loc) {
     for (BlinkRune rune : runes) {
-      if (rune.isPart(loc)) {
+      if (rune.isPart(rune.world, loc)) {
         return rune;
       }
     }
