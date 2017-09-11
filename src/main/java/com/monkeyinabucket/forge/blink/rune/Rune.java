@@ -1,13 +1,12 @@
 package com.monkeyinabucket.forge.blink.rune;
 
+import com.monkeyinabucket.forge.blink.Blink;
 import com.monkeyinabucket.forge.world.Location;
+
 import net.minecraft.util.BlockPos;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
-import com.monkeyinabucket.forge.blink.Blink;
-import com.monkeyinabucket.forge.world.Location;
 
 /**
  * General Rune class. This class could eventually be the base class for other
